@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/08/cmake/index.html">
 <meta property="og:site_name" content="江小发的博客">
 <meta property="og:description" content="cmake 学习因为遇到之前的CudaStreamDevice编译问题，现在想效仿dynet直接用cmake来编译。">
-<meta property="og:updated_time" content="2017-07-08T10:52:57.000Z">
+<meta property="og:updated_time" content="2017-07-08T11:40:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmake">
 <meta name="twitter:description" content="cmake 学习因为遇到之前的CudaStreamDevice编译问题，现在想效仿dynet直接用cmake来编译。">
@@ -375,7 +375,7 @@
         <h3 id="cmake-学习"><a href="#cmake-学习" class="headerlink" title="cmake 学习"></a>cmake 学习</h3><p>因为遇到之前的CudaStreamDevice编译问题，现在想效仿dynet直接用cmake来编译。<br><a id="more"></a></p>
 <p>原文：<a href="http://www.hahack.com/codes/cmake/" title="原文" target="_blank" rel="external">http://www.hahack.com/codes/cmake/</a><br>示例代码：<a href="https://github.com/wzpan/cmake-demo" title="代码" target="_blank" rel="external">https://github.com/wzpan/cmake-demo</a></p>
 <h4 id="cmake的一般方法"><a href="#cmake的一般方法" class="headerlink" title="cmake的一般方法"></a>cmake的一般方法</h4><ul>
-<li><p>单个源文件  </p>
+<li><p><strong><em>单个源文件</em></strong> </p>
 <pre><code>  # CMake 最低版本号要求  
   cmake_minimum_required (VERSION 2.8)
 
@@ -392,7 +392,7 @@
 <pre><code>cmake .
 make
 </code></pre><ul>
-<li>多个源文件  </li>
+<li><strong><em>多个源文件</em></strong>  </li>
 </ul>
 <font color="green" size="4"> 文件结构 </font>
 
@@ -425,7 +425,7 @@ make
     add_executable(Demo ${DIR_SRCS})
 </code></pre><p>这样，CMake 会将当前目录所有源文件的文件名赋值给变量 <code>DIR_SRCS</code> ，再指示变量 <code>DIR_SRCS</code> 中的源文件需要编译成一个名称为 Demo 的可执行文件。</p>
 <ul>
-<li>多个目录，多个源文件 </li>
+<li><strong><em>多个目录，多个源文件</em></strong> </li>
 </ul>
 <font color="green" size="4"> 文件结构 </font>
 
@@ -462,7 +462,7 @@ make
     add_library (MathFunctions ${DIR_LIB_SRCS})
 </code></pre><p>在该文件中使用命令 <code>add_library</code> 将 src 目录中的源文件编译为静态链接库。</p>
 <ul>
-<li>自定义编译选项  </li>
+<li><strong><em>自定义编译选项</em></strong>  </li>
 </ul>
 <p>CMake 允许为项目增加编译选项，从而可以根据用户的环境和需求选择最合适的编译方案。</p>
 <p>例如，可以将 MathFunctions 库设为一个可选的库，如果该选项为 ON ，就使用该库定义的数学函数来进行运算。否则就调用标准库中的数学函数库。</p>
