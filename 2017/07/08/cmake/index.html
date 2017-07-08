@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="探索c++在gpu上的使用">
+<meta name="description" content="cmake 学习因为遇到之前的CudaStreamDevice编译问题，现在想效仿dynet直接用cmake来编译。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GPU">
-<meta property="og:url" content="http://yoursite.com/2017/07/07/GPU/index.html">
+<meta property="og:title" content="cmake">
+<meta property="og:url" content="http://yoursite.com/2017/07/08/cmake/index.html">
 <meta property="og:site_name" content="江小发的博客">
-<meta property="og:description" content="探索c++在gpu上的使用">
-<meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/1.PNG">
-<meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/2.PNG">
-<meta property="og:updated_time" content="2017-07-08T10:52:54.000Z">
+<meta property="og:description" content="cmake 学习因为遇到之前的CudaStreamDevice编译问题，现在想效仿dynet直接用cmake来编译。">
+<meta property="og:updated_time" content="2017-07-08T10:52:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GPU">
-<meta name="twitter:description" content="探索c++在gpu上的使用">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/1.PNG">
+<meta name="twitter:title" content="cmake">
+<meta name="twitter:description" content="cmake 学习因为遇到之前的CudaStreamDevice编译问题，现在想效仿dynet直接用cmake来编译。">
 
 
 
@@ -127,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/07/GPU/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/08/cmake/"/>
 
 
 
 
 
-  <title> GPU | 江小发的博客 </title>
+  <title> cmake | 江小发的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -290,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/07/GPU/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/cmake/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="江小发">
@@ -314,7 +311,7 @@
             
             
               
-                GPU
+                cmake
               
             
           </h1>
@@ -329,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-07T18:53:34+08:00">
-                2017-07-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-08T18:41:43+08:00">
+                2017-07-08
               </time>
             
 
@@ -348,8 +345,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/07/GPU/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/07/GPU/" itemprop="commentCount"></span>
+                <a href="/2017/07/08/cmake/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/08/cmake/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -375,29 +372,133 @@
       
 
       
-        <p>探索c++在gpu上的使用<br><a id="more"></a></p>
-<h3 id="2017-7-7"><a href="#2017-7-7" class="headerlink" title="2017.7.7"></a>2017.7.7</h3><hr>
-<h5 id="Eigen-CudaStreamDevice编译不通过"><a href="#Eigen-CudaStreamDevice编译不通过" class="headerlink" title="Eigen::CudaStreamDevice编译不通过"></a>Eigen::CudaStreamDevice编译不通过</h5><pre><code>   //for example
-  1 #include &quot;Eigen/Dense&quot;
-  2 #include &lt;unsupported/Eigen/CXX11/Tensor&gt;
-  3 
-  4 namespace Eigen {
-  5   struct DefaultDevice;
-  6   class CudaStreamDevice;                                                                                                                                                  
-  7   struct GpuDevice;
-  8 }
-  9 
- 10 int main()
- 11 {
- 12     Eigen::CudaStreamDevice* estream;
- 13     estream = new Eigen::CudaStreamDevice(0);
- 14     Eigen::GpuDevice* edevice;
- 15     edevice = new Eigen::GpuDevice(estream); 16       17     return 0; 18 }     
- 19  
-</code></pre><h5 id="编译结果："><a href="#编译结果：" class="headerlink" title="编译结果："></a>编译结果：</h5><p><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/1.PNG" alt="示例"></p>
-<p>CudaStreamDevice和GpuDevice都是Eigen中的，通过<code>#include &lt;unsupported/Eigen/CXX11/Tensor&gt;</code>已经包含了头文件。<br>如果去掉<code>namespace Eigen{...}</code>那一段声明，编译报另外一种错。</p>
-<p><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/2.PNG" alt="示例1"></p>
+        <h3 id="cmake-学习"><a href="#cmake-学习" class="headerlink" title="cmake 学习"></a>cmake 学习</h3><p>因为遇到之前的CudaStreamDevice编译问题，现在想效仿dynet直接用cmake来编译。<br><a id="more"></a></p>
+<p>原文：<a href="http://www.hahack.com/codes/cmake/" title="原文" target="_blank" rel="external">http://www.hahack.com/codes/cmake/</a><br>示例代码：<a href="https://github.com/wzpan/cmake-demo" title="代码" target="_blank" rel="external">https://github.com/wzpan/cmake-demo</a></p>
+<h4 id="cmake的一般方法"><a href="#cmake的一般方法" class="headerlink" title="cmake的一般方法"></a>cmake的一般方法</h4><ul>
+<li><p>单个源文件  </p>
+<pre><code>  # CMake 最低版本号要求  
+  cmake_minimum_required (VERSION 2.8)
 
+  # 项目信息
+  project (Demo1)
+
+  # 指定生成目标
+  add_executable(Demo1 main.cc)
+</code></pre></li>
+</ul>
+<p><code>cmake_minimum_required</code>：指定运行此配置文件所需的 CMake 的最低版本；<br><code>project</code>：参数值是 Demo1，该命令表示项目的名称是 Demo1 。<br><code>add_executabl</code>e： 将名为 main.cc 的源文件编译成一个名称为 Demo 的可执行文件。  </p>
+<font color="red" size="4"> <strong>编译项目</strong> </font>
+
+<pre><code>cmake .
+make
+</code></pre><ul>
+<li>多个源文件  </li>
+</ul>
+<font color="green" size="4"> 文件结构 </font>
+
+<pre><code>    ./Demo2
+    |
+    +--- main.cc
+    |
+    +--- MathFunctions.cc
+    |
+    +--- MathFunctions.h
+</code></pre><font color="green" size="4"> CMakeList.txt </font>
+
+<pre><code>    # CMake 最低版本号要求
+    cmake_minimum_required (VERSION 2.8)
+
+    # 项目信息
+    project (Demo2)
+
+    # 指定生成目标
+    add_executable(Demo main.cc MathFunctions.cc)
+</code></pre><p>唯一的改动只是在 <code>add_executable</code> 命令中增加了一个 MathFunctions.cc 源文件。这样写当然没什么问题，但是如果源文件很多，把所有源文件的名字都加进去将是一件烦人的工作。更省事的方法是使用 <code>aux_source_directory</code> 命令，该命令会查找指定目录下的所有源文件，然后将结果存进指定变量名。</p>
+<pre><code>    # CMake 最低版本号要求
+    cmake_minimum_required (VERSION 2.8)
+    # 项目信息
+    project (Demo2)
+    # 查找当前目录下的所有源文件
+    # 并将名称保存到 DIR_SRCS 变量
+    aux_source_directory(. DIR_SRCS)
+    # 指定生成目标
+    add_executable(Demo ${DIR_SRCS})
+</code></pre><p>这样，CMake 会将当前目录所有源文件的文件名赋值给变量 <code>DIR_SRCS</code> ，再指示变量 <code>DIR_SRCS</code> 中的源文件需要编译成一个名称为 Demo 的可执行文件。</p>
+<ul>
+<li>多个目录，多个源文件 </li>
+</ul>
+<font color="green" size="4"> 文件结构 </font>
+
+<pre><code>    ./Demo3
+    |
+    +--- main.cc
+    |
+    +--- math/
+          |
+          +--- MathFunctions.cc
+          |
+          +--- MathFunctions.h
+</code></pre><p>对于这种情况，需要分别在项目根目录 Demo3 和 math 目录里各编写一个 CMakeLists.txt 文件。为了方便，我们可以先将 math 目录里的文件编译成静态库再由 main 函数调用。</p>
+<p>根目录中的 CMakeLists.txt ：  </p>
+<pre><code>    # CMake 最低版本号要求
+    cmake_minimum_required (VERSION 2.8)
+    # 项目信息
+    project (Demo3)
+    # 查找当前目录下的所有源文件
+    # 并将名称保存到 DIR_SRCS 变量
+    aux_source_directory(. DIR_SRCS)
+    # 添加 math 子目录
+    add_subdirectory(math)
+    # 指定生成目标 
+    add_executable(Demo main.cc)
+    # 添加链接库
+    target_link_libraries(Demo MathFunctions)
+</code></pre><p>该文件添加了下面的内容: 使用命令 <code>add_subdirectory</code> 指明本项目包含一个子目录 math，这样 math 目录下的 CMakeLists.txt 文件和源代码也会被处理 。使用命令 <code>target_link_libraries</code> 指明可执行文件 main 需要连接一个名为 MathFunctions 的链接库 。</p>
+<p>子目录中的 CMakeLists.txt：</p>
+<pre><code>    # 查找当前目录下的所有源文件
+    # 并将名称保存到 DIR_LIB_SRCS 变量
+    aux_source_directory(. DIR_LIB_SRCS)
+    # 生成链接库
+    add_library (MathFunctions ${DIR_LIB_SRCS})
+</code></pre><p>在该文件中使用命令 <code>add_library</code> 将 src 目录中的源文件编译为静态链接库。</p>
+<ul>
+<li>自定义编译选项  </li>
+</ul>
+<p>CMake 允许为项目增加编译选项，从而可以根据用户的环境和需求选择最合适的编译方案。</p>
+<p>例如，可以将 MathFunctions 库设为一个可选的库，如果该选项为 ON ，就使用该库定义的数学函数来进行运算。否则就调用标准库中的数学函数库。</p>
+<pre><code>    # CMake 最低版本号要求
+    cmake_minimum_required (VERSION 2.8)
+    # 项目信息
+    project (Demo4)
+    # 加入一个配置头文件，用于处理 CMake 对源码的设置
+    configure_file (
+      &quot;${PROJECT_SOURCE_DIR}/config.h.in&quot;
+      &quot;${PROJECT_BINARY_DIR}/config.h&quot;
+      )
+    # 是否使用自己的 MathFunctions 库
+    option (USE_MYMATH
+           &quot;Use provided math implementation&quot; ON)
+    # 是否加入 MathFunctions 库
+    if (USE_MYMATH)
+      include_directories (&quot;${PROJECT_SOURCE_DIR}/math&quot;)
+      add_subdirectory (math)  
+      set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
+    endif (USE_MYMATH)
+    # 查找当前目录下的所有源文件
+    # 并将名称保存到 DIR_SRCS 变量
+    aux_source_directory(. DIR_SRCS)
+    # 指定生成目标
+    add_executable(Demo ${DIR_SRCS})
+    target_link_libraries (Demo  ${EXTRA_LIBS})
+</code></pre><p><code>configure_file</code>命令用于加入一个配置头文件 config.h, 这个文件由 CMake 从 config.h.in 生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成。option 命令添加了一个USE_MYMATH选项，并且默认值为ON。根据USE_MYMATH变量的值来决定是否使用我们自己编写的 MathFunctions 库。</p>
+<p><font color="red" size="4"> <strong><em>编写 <font color="green" size="4"> </font></em></strong>config.h.in<strong><em> </em></strong></font>文件 <br>上面的程序值得注意的是，这里引用了一个 config.h 文件，这个文件预定义了 USE_MYMATH 的值。但我们并不直接编写这个文件，为了方便从 CMakeLists.txt 中导入配置，我们编写一个 config.h.in 文件，内容如下：<br><code>#cmakedefine USE_MYMATH</code></p>
+<pre><code>    //两种编译方法：
+    cmake . -DUSE_MYMATH=ON
+    make
+
+    cmake . -DUSE_MYMATH=OFF
+    make
+</code></pre>
       
     </div>
 
@@ -427,15 +528,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/07/GPU/" rel="next" title="GPU">
+                <i class="fa fa-chevron-left"></i> GPU
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/08/cmake/" rel="prev" title="cmake">
-                cmake <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,8 +562,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/07/07/GPU/"
-           data-title="GPU" data-url="http://yoursite.com/2017/07/07/GPU/">
+      <div class="ds-thread" data-thread-key="2017/07/08/cmake/"
+           data-title="cmake" data-url="http://yoursite.com/2017/07/08/cmake/">
       </div>
     
   </div>
@@ -574,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-7-7"><span class="nav-number">1.</span> <span class="nav-text">2017.7.7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Eigen-CudaStreamDevice编译不通过"><span class="nav-number">1.0.1.</span> <span class="nav-text">Eigen::CudaStreamDevice编译不通过</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译结果："><span class="nav-number">1.0.2.</span> <span class="nav-text">编译结果：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake-学习"><span class="nav-number">1.</span> <span class="nav-text">cmake 学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cmake的一般方法"><span class="nav-number">1.1.</span> <span class="nav-text">cmake的一般方法</span></a></li></ol></li></ol></div>
             
 
           </div>
