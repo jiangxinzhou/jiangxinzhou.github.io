@@ -95,7 +95,10 @@
 <meta property="og:description" content="探索c++在gpu上的使用">
 <meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/1.PNG">
 <meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/2.PNG">
-<meta property="og:updated_time" content="2017-07-08T10:52:54.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/3.PNG">
+<meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/4.PNG">
+<meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/5.PNG">
+<meta property="og:updated_time" content="2017-07-10T12:53:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GPU">
 <meta name="twitter:description" content="探索c++在gpu上的使用">
@@ -397,6 +400,11 @@
 </code></pre><h5 id="编译结果："><a href="#编译结果：" class="headerlink" title="编译结果："></a>编译结果：</h5><p><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/1.PNG" alt="示例"></p>
 <p>CudaStreamDevice和GpuDevice都是Eigen中的，通过<code>#include &lt;unsupported/Eigen/CXX11/Tensor&gt;</code>已经包含了头文件。<br>如果去掉<code>namespace Eigen{...}</code>那一段声明，编译报另外一种错。</p>
 <p><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/2.PNG" alt="示例1"></p>
+<h4 id="2017-7-10"><a href="#2017-7-10" class="headerlink" title="2017.7.10"></a>2017.7.10</h4><hr>
+<h4 id="使用cmake进行编译，遇到的link错误"><a href="#使用cmake进行编译，遇到的link错误" class="headerlink" title="使用cmake进行编译，遇到的link错误"></a>使用cmake进行编译，遇到的link错误</h4><p> <img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/3.PNG" alt="错误">  </p>
+<p> 在eigen中找到的代码片段(eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h):<br> <img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/4.PNG" alt="代码片段1">  </p>
+<p> <img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/5.PNG" alt="代码片段2"></p>
+<p> 可见：是因为没有<font color="red" size="4"><code>__CUDACC__</code></font>这个宏定义，所以run()函数无法被编译，导致link错误。<br> <font color="red" size="4"><code>EIGEN_USE_GPU</code></font>在CMakeLists.txt中的<font color="red" size="4"><code>CMAKE_CXX_FLAGS</code></font>这一变量中是可以被添加的。</p>
 
       
     </div>
@@ -574,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-7-7"><span class="nav-number">1.</span> <span class="nav-text">2017.7.7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Eigen-CudaStreamDevice编译不通过"><span class="nav-number">1.0.1.</span> <span class="nav-text">Eigen::CudaStreamDevice编译不通过</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译结果："><span class="nav-number">1.0.2.</span> <span class="nav-text">编译结果：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-7-7"><span class="nav-number">1.</span> <span class="nav-text">2017.7.7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Eigen-CudaStreamDevice编译不通过"><span class="nav-number">1.0.1.</span> <span class="nav-text">Eigen::CudaStreamDevice编译不通过</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译结果："><span class="nav-number">1.0.2.</span> <span class="nav-text">编译结果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2017-7-10"><span class="nav-number">1.1.</span> <span class="nav-text">2017.7.10</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用cmake进行编译，遇到的link错误"><span class="nav-number">1.2.</span> <span class="nav-text">使用cmake进行编译，遇到的link错误</span></a></li></ol></li></ol></div>
             
 
           </div>
