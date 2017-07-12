@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/5.PNG">
 <meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/1.PNG">
 <meta property="og:image" content="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/2.PNG">
-<meta property="og:updated_time" content="2017-07-12T13:52:13.000Z">
+<meta property="og:updated_time" content="2017-07-12T13:55:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GPU">
 <meta name="twitter:description" content="探索c++在gpu上的使用">
@@ -387,7 +387,7 @@
 <p>编译问题终于得到解决，很开心:)</p>
 <p>CUDA代码要用NVCC这个编译驱动程序。<br>CUDA源码包含了host和device两部分的code，需要将两部分code分离，然后device的code用NVIDIA编译器来生成目标文件，host code就用标准编译器编译，如gcc。这就是NVCC的主要工作内容。</p>
 <p>在cmake中主要用到的function是CUDA_ADD_EXECUTABLE()和CUDA_ADD_LIBRARY()<br><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/6.PNG" alt=""><br><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/7.PNG" alt=""></p>
-<p>注意：cuda源文件后缀一定是.cu，NVCC只对.cu文件进行处理，也就是说上述两个function中的。cc文件一定是只用gcc编译，其中只有host code。如果一个源文件中有device code,一定用.cu后缀。<br>用NVCC处理的源中间中，一些宏定义才起作用，如__CUDACC__。</p>
+<p>注意：cuda源文件后缀一定是.cu，NVCC只对.cu文件进行处理，也就是说上述两个function的参数中，cc文件一定是只用gcc编译，其中只有host code，如果一个源文件中有device code,一定用.cu后缀。<br>只有在用NVCC处理的源文件中，一些宏定义才起作用，如__CUDACC__。</p>
 <p><strong>example</strong>  </p>
 <p><font color="blue"> main.cu: </font><br><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/8.PNG" alt=""></p>
 <p><font color="blue"> output: </font><br><img src="https://raw.githubusercontent.com/jiangxinzhou/MarkdownPhotos/master/9.PNG" alt=""></p>
