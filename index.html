@@ -387,122 +387,14 @@
 
       
         
-          
-            <h3 id="GPU阶段进展"><a href="#GPU阶段进展" class="headerlink" title="GPU阶段进展"></a>GPU阶段进展</h3><hr>
-<h3 id="2017-09-23"><a href="#2017-09-23" class="headerlink" title="2017.09.23"></a>2017.09.23</h3><p>这是每种操作的速度对比</p>
-<p>batch=200  </p>
-<table>
-<thead>
-<tr>
-<th>type</th>
-<th>gpu</th>
-<th>cpu</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>lookup-forward</td>
-<td>0.000229853s</td>
-<td>0.00597708s</td>
-</tr>
-<tr>
-<td>concat-forward</td>
-<td>0.200188s</td>
-<td>0.0169571s</td>
-</tr>
-<tr>
-<td>uni-foward</td>
-<td>0.00262009s</td>
-<td>0.0937945s</td>
-</tr>
-<tr>
-<td>pooling-forward</td>
-<td>0.20069s</td>
-<td>0.00396328s</td>
-</tr>
-<tr>
-<td>linear-foward</td>
-<td>0.000148395s</td>
-<td>0.000214557s</td>
-</tr>
-<tr>
-<td>linear-backward</td>
-<td>0.000286749s</td>
-<td>0.000243042s </td>
-</tr>
-<tr>
-<td>pooling-backward</td>
-<td>0.132975s</td>
-<td>0.00263142s</td>
-</tr>
-<tr>
-<td>uni-backward</td>
-<td>0.0215583s</td>
-<td>0.119479s</td>
-</tr>
-<tr>
-<td>concat-backward</td>
-<td>0.326602s</td>
-<td>0.0109295s</td>
-</tr>
-<tr>
-<td>lookup-backward</td>
-<td>0.000352543s</td>
-<td>0.00292671s</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="2017-10-03"><a href="#2017-10-03" class="headerlink" title="2017.10.03"></a>2017.10.03</h3><p>1.Tensor类改成matrix类为什么结果会有一些差别？  </p>
-<p>答：输出embedding看了下，基本都是相同的，embeding的小数点后好几位有点出入，应该是精度的问题。  </p>
-<p>2.为什么gpu的node的delete和new效率这么低？ </p>
-<p>答：node的new和delete涉及matrix的new和delete，gpu的new和delete较慢，之前gpu有使用那种手动管理的方式，使得gpu内存的new和delete速度变快，但即使这样gpu比cpu上还是慢很多(经过测试， 10倍以上)。所以node应该尽量重用。</p>
-<hr>
-<h3 id="2017-10-06"><a href="#2017-10-06" class="headerlink" title="2017.10.06"></a>2017.10.06</h3><p>将GraphBuilder加入Biaffine-parser的代码</p>
-<table>
-<thead>
-<tr>
-<th>版本</th>
-<th>用时（10000个句子） </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>before</td>
-<td>13m47s</td>
-</tr>
-<tr>
-<td>after</td>
-<td>6m10s</td>
-</tr>
-</tbody>
-</table>
-<p>看的出来，node的重用对提升效率还是挺有帮助的。</p>
-<hr>
-<h3 id="2017-10-09"><a href="#2017-10-09" class="headerlink" title="2017.10.09"></a>2017.10.09</h3><p>对目前GPU加速需要解决的问题进行一个总结:<br>1.显存管理需要改掉  </p>
-<p>每次batch做完后，需要对Graph中所有的Node</p>
-<p>进行clearValue以便重用(也就是对val, loss </p>
-<p>这些matrix进行zeros()操作)，这其实就是在</p>
-<p>线性的进行一些小矩阵的操作，效率太低。解</p>
-<p>决办法可以效仿dynet，内存管理类申请了三大</p>
-<p>块各自独立的内存“forward  memory”, “backw</p>
-<p>-ard memory”  和”parameters</p>
-<p>memory”(现在所用的内存管理类只能申请一块大内存),</p>
-<p>这样做的好处就是，不同用途的显</p>
-<p>存在不同的memory中申请，zeros操作就可以对那一大块</p>
-<p>内存高度并行的zeros()。</p>
-<p>2.显存大小问题  </p>
-<p>batch只能开到100,这是硬件的限制，当然如果能</p>
-<p>多个gpu协作地处理，这个问题或许能解决，这需</p>
-<p>要更高级的GPU编程知识(dynet也只能用一个GPU)。  </p>
-<p>3.显存泄露问题</p>
-<p>这和问题2无关，在一个batch的nodes所需的显存  </p>
-<p>分配好以后，每执行一个batch,剩余的 free memory   </p>
-<p>就会变少。  </p>
-<p>4.Biaffine Node的矩阵如何合并的问题。  </p>
-<p>5.concat, dropout的并行程度。</p>
-
-          
+          <h3 id="GPU阶段进展"><a href="#GPU阶段进展" class="headerlink" title="GPU阶段进展"></a>GPU阶段进展</h3><h2 id=""><a href="#" class="headerlink" title=""></a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/12/GPU阶段进展/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
