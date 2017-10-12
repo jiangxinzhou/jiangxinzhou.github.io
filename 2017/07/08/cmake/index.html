@@ -408,128 +408,23 @@
 <p>原文: <a href="http://www.hahack.com/codes/cmake/" title="原文" target="_blank" rel="external">http://www.hahack.com/codes/cmake/</a><br>示例代码: <a href="https://github.com/wzpan/cmake-demo" title="代码" target="_blank" rel="external">https://github.com/wzpan/cmake-demo</a><br>相关博客: （很有用): <a href="https://www.kancloud.cn/itfanr/cmake-practice/82986" target="_blank" rel="external">https://www.kancloud.cn/itfanr/cmake-practice/82986</a></p>
 <h4 id="cmake的一般方法"><a href="#cmake的一般方法" class="headerlink" title="cmake的一般方法"></a>cmake的一般方法</h4><ul>
 <li><p><strong><em>单个源文件</em></strong> </p>
-<pre><code>  # CMake 最低版本号要求  
-  cmake_minimum_required (VERSION 2.8)
+<pre><code># CMake 最低版本号要求  
+cmake_minimum_required (VERSION 2.8)
 
-  # 项目信息
-  project (Demo1)
+# 项目信息
+project (Demo1)
 
-  # 指定生成目标
-  add_executable(Demo1 main.cc)
+# 指定生成目标
+add_executable(Demo1 main.cc)
 </code></pre></li>
 </ul>
-<p><code>cmake_minimum_required</code>：指定运行此配置文件所需的 CMake 的最低版本；<br><code>project</code>：参数值是 Demo1，该命令表示项目的名称是 Demo1 。<br><code>add_executabl</code>e： 将名为 main.cc 的源文件编译成一个名称为 Demo 的可执行文件。  </p>
-<font color="red" size="4"> <strong>编译项目</strong> </font>
-
-<pre><code>cmake .
+<figure class="highlight plain"><figcaption><span>CMake 的最低版本；  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div></pre></td><td class="code"><pre><div class="line">```project```：参数值是 Demo1，该命令表示项目的名称是 Demo1 。  </div><div class="line">```add_executabl```e： 将名为 main.cc 的源文件编译成一个名称为 Demo 的可执行文件。  </div><div class="line"></div><div class="line">&lt;font color=red size=4&gt; **编译项目** &lt;/font&gt;</div><div class="line"></div><div class="line">	cmake .</div><div class="line">	make</div><div class="line"></div><div class="line">* ***多个源文件***  </div><div class="line"></div><div class="line">&lt;font color=green size=4&gt; 文件结构 &lt;/font&gt;</div><div class="line"></div><div class="line">		./Demo2</div><div class="line">	    |</div><div class="line">	    +--- main.cc</div><div class="line">	    |</div><div class="line">	    +--- MathFunctions.cc</div><div class="line">	    |</div><div class="line">	    +--- MathFunctions.h</div><div class="line"></div><div class="line">&lt;font color=green size=4&gt; CMakeList.txt &lt;/font&gt;</div><div class="line"></div><div class="line">		# CMake 最低版本号要求</div><div class="line">		cmake_minimum_required (VERSION 2.8)</div><div class="line"></div><div class="line">		# 项目信息</div><div class="line">		project (Demo2)</div><div class="line"></div><div class="line">		# 指定生成目标</div><div class="line">		add_executable(Demo main.cc MathFunctions.cc)</div><div class="line"></div><div class="line">唯一的改动只是在 ```add_executable``` 命令中增加了一个 MathFunctions.cc 源文件。这样写当然没什么问题，但是如果源文件很多，把所有源文件的名字都加进去将是一件烦人的工作。更省事的方法是使用 ```aux_source_directory``` 命令，该命令会查找指定目录下的所有源文件，然后将结果存进指定变量名。</div><div class="line"></div><div class="line">		# CMake 最低版本号要求</div><div class="line">		cmake_minimum_required (VERSION 2.8)</div><div class="line">		# 项目信息</div><div class="line">		project (Demo2)</div><div class="line">		# 查找当前目录下的所有源文件</div><div class="line">		# 并将名称保存到 DIR_SRCS 变量</div><div class="line">		aux_source_directory(. DIR_SRCS)</div><div class="line">		# 指定生成目标</div><div class="line">		add_executable(Demo $&#123;DIR_SRCS&#125;)</div><div class="line">这样，CMake 会将当前目录所有源文件的文件名赋值给变量 ```DIR_SRCS``` ，再指示变量 ```DIR_SRCS ``` 中的源文件需要编译成一个名称为 Demo 的可执行文件。</div><div class="line"></div><div class="line">* ***多个目录，多个源文件*** </div><div class="line"></div><div class="line">&lt;font color=green size=4&gt; 文件结构 &lt;/font&gt;</div><div class="line"></div><div class="line">		./Demo3</div><div class="line">	    |</div><div class="line">	    +--- main.cc</div><div class="line">	    |</div><div class="line">	    +--- math/</div><div class="line">	          |</div><div class="line">	          +--- MathFunctions.cc</div><div class="line">	          |</div><div class="line">	          +--- MathFunctions.h</div><div class="line"></div><div class="line">对于这种情况，需要分别在项目根目录 Demo3 和 math 目录里各编写一个 CMakeLists.txt 文件。为了方便，我们可以先将 math 目录里的文件编译成静态库再由 main 函数调用。</div><div class="line">  </div><div class="line">根目录中的 CMakeLists.txt ：  </div><div class="line"></div><div class="line">		# CMake 最低版本号要求</div><div class="line">		cmake_minimum_required (VERSION 2.8)</div><div class="line">		# 项目信息</div><div class="line">		project (Demo3)</div><div class="line">		# 查找当前目录下的所有源文件</div><div class="line">		# 并将名称保存到 DIR_SRCS 变量</div><div class="line">		aux_source_directory(. DIR_SRCS)</div><div class="line">		# 添加 math 子目录</div><div class="line">		add_subdirectory(math)</div><div class="line">		# 指定生成目标 </div><div class="line">		add_executable(Demo main.cc)</div><div class="line">		# 添加链接库</div><div class="line">		target_link_libraries(Demo MathFunctions)</div><div class="line"></div><div class="line">该文件添加了下面的内容: 使用命令 ```add_subdirectory``` 指明本项目包含一个子目录 math，这样 math 目录下的 CMakeLists.txt 文件和源代码也会被处理 。使用命令 ```target_link_libraries``` 指明可执行文件 main 需要连接一个名为 MathFunctions 的链接库 。</div><div class="line"></div><div class="line">子目录中的 CMakeLists.txt：</div><div class="line"></div><div class="line">		# 查找当前目录下的所有源文件</div><div class="line">		# 并将名称保存到 DIR_LIB_SRCS 变量</div><div class="line">		aux_source_directory(. DIR_LIB_SRCS)</div><div class="line">		# 生成链接库</div><div class="line">		add_library (MathFunctions $&#123;DIR_LIB_SRCS&#125;)</div><div class="line"></div><div class="line">在该文件中使用命令 ```add_library``` 将 src 目录中的源文件编译为静态链接库。</div><div class="line"></div><div class="line">* ***自定义编译选项***  </div><div class="line"></div><div class="line">CMake 允许为项目增加编译选项，从而可以根据用户的环境和需求选择最合适的编译方案。</div><div class="line"></div><div class="line">例如，可以将 MathFunctions 库设为一个可选的库，如果该选项为 ON ，就使用该库定义的数学函数来进行运算。否则就调用标准库中的数学函数库。</div><div class="line">	</div><div class="line">		# CMake 最低版本号要求</div><div class="line">		cmake_minimum_required (VERSION 2.8)</div><div class="line">		# 项目信息</div><div class="line">		project (Demo4)</div><div class="line">		# 加入一个配置头文件，用于处理 CMake 对源码的设置</div><div class="line">		configure_file (</div><div class="line">		  &quot;$&#123;PROJECT_SOURCE_DIR&#125;/config.h.in&quot;</div><div class="line">		  &quot;$&#123;PROJECT_BINARY_DIR&#125;/config.h&quot;</div><div class="line">		  )</div><div class="line">		# 是否使用自己的 MathFunctions 库</div><div class="line">		option (USE_MYMATH</div><div class="line">		       &quot;Use provided math implementation&quot; ON)</div><div class="line">		# 是否加入 MathFunctions 库</div><div class="line">		if (USE_MYMATH)</div><div class="line">		  include_directories (&quot;$&#123;PROJECT_SOURCE_DIR&#125;/math&quot;)</div><div class="line">		  add_subdirectory (math)  </div><div class="line">		  set (EXTRA_LIBS $&#123;EXTRA_LIBS&#125; MathFunctions)</div><div class="line">		endif (USE_MYMATH)</div><div class="line">		# 查找当前目录下的所有源文件</div><div class="line">		# 并将名称保存到 DIR_SRCS 变量</div><div class="line">		aux_source_directory(. DIR_SRCS)</div><div class="line">		# 指定生成目标</div><div class="line">		add_executable(Demo $&#123;DIR_SRCS&#125;)</div><div class="line">		target_link_libraries (Demo  $&#123;EXTRA_LIBS&#125;)</div><div class="line">  </div><div class="line">```configure_file```命令用于加入一个配置头文件 config.h, 这个文件由 CMake 从 config.h.in 生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成。option 命令添加了一个USE_MYMATH选项，并且默认值为ON。根据USE_MYMATH变量的值来决定是否使用我们自己编写的 MathFunctions 库。</div><div class="line"></div><div class="line">&lt;font color=red size=4&gt; ***编写 &lt;font color=green size=4&gt; ***config.h.in*** &lt;/font&gt;文件*** &lt;/font&gt;  </div><div class="line">上面的程序值得注意的是，这里引用了一个 config.h 文件，这个文件预定义了 USE_MYMATH 的值。但我们并不直接编写这个文件，为了方便从 CMakeLists.txt 中导入配置，我们编写一个 config.h.in 文件，内容如下：  </div><div class="line">```#cmakedefine USE_MYMATH</div></pre></td></tr></table></figure>
+<pre><code>//两种编译方法：
+cmake . -DUSE_MYMATH=ON
 make
-</code></pre><ul>
-<li><strong><em>多个源文件</em></strong>  </li>
-</ul>
-<font color="green" size="4"> 文件结构 </font>
 
-<pre><code>    ./Demo2
-    |
-    +--- main.cc
-    |
-    +--- MathFunctions.cc
-    |
-    +--- MathFunctions.h
-</code></pre><font color="green" size="4"> CMakeList.txt </font>
-
-<pre><code>    # CMake 最低版本号要求
-    cmake_minimum_required (VERSION 2.8)
-
-    # 项目信息
-    project (Demo2)
-
-    # 指定生成目标
-    add_executable(Demo main.cc MathFunctions.cc)
-</code></pre><p>唯一的改动只是在 <code>add_executable</code> 命令中增加了一个 MathFunctions.cc 源文件。这样写当然没什么问题，但是如果源文件很多，把所有源文件的名字都加进去将是一件烦人的工作。更省事的方法是使用 <code>aux_source_directory</code> 命令，该命令会查找指定目录下的所有源文件，然后将结果存进指定变量名。</p>
-<pre><code>    # CMake 最低版本号要求
-    cmake_minimum_required (VERSION 2.8)
-    # 项目信息
-    project (Demo2)
-    # 查找当前目录下的所有源文件
-    # 并将名称保存到 DIR_SRCS 变量
-    aux_source_directory(. DIR_SRCS)
-    # 指定生成目标
-    add_executable(Demo ${DIR_SRCS})
-</code></pre><p>这样，CMake 会将当前目录所有源文件的文件名赋值给变量 <code>DIR_SRCS</code> ，再指示变量 <code>DIR_SRCS</code> 中的源文件需要编译成一个名称为 Demo 的可执行文件。</p>
-<ul>
-<li><strong><em>多个目录，多个源文件</em></strong> </li>
-</ul>
-<font color="green" size="4"> 文件结构 </font>
-
-<pre><code>    ./Demo3
-    |
-    +--- main.cc
-    |
-    +--- math/
-          |
-          +--- MathFunctions.cc
-          |
-          +--- MathFunctions.h
-</code></pre><p>对于这种情况，需要分别在项目根目录 Demo3 和 math 目录里各编写一个 CMakeLists.txt 文件。为了方便，我们可以先将 math 目录里的文件编译成静态库再由 main 函数调用。</p>
-<p>根目录中的 CMakeLists.txt ：  </p>
-<pre><code>    # CMake 最低版本号要求
-    cmake_minimum_required (VERSION 2.8)
-    # 项目信息
-    project (Demo3)
-    # 查找当前目录下的所有源文件
-    # 并将名称保存到 DIR_SRCS 变量
-    aux_source_directory(. DIR_SRCS)
-    # 添加 math 子目录
-    add_subdirectory(math)
-    # 指定生成目标 
-    add_executable(Demo main.cc)
-    # 添加链接库
-    target_link_libraries(Demo MathFunctions)
-</code></pre><p>该文件添加了下面的内容: 使用命令 <code>add_subdirectory</code> 指明本项目包含一个子目录 math，这样 math 目录下的 CMakeLists.txt 文件和源代码也会被处理 。使用命令 <code>target_link_libraries</code> 指明可执行文件 main 需要连接一个名为 MathFunctions 的链接库 。</p>
-<p>子目录中的 CMakeLists.txt：</p>
-<pre><code>    # 查找当前目录下的所有源文件
-    # 并将名称保存到 DIR_LIB_SRCS 变量
-    aux_source_directory(. DIR_LIB_SRCS)
-    # 生成链接库
-    add_library (MathFunctions ${DIR_LIB_SRCS})
-</code></pre><p>在该文件中使用命令 <code>add_library</code> 将 src 目录中的源文件编译为静态链接库。</p>
-<ul>
-<li><strong><em>自定义编译选项</em></strong>  </li>
-</ul>
-<p>CMake 允许为项目增加编译选项，从而可以根据用户的环境和需求选择最合适的编译方案。</p>
-<p>例如，可以将 MathFunctions 库设为一个可选的库，如果该选项为 ON ，就使用该库定义的数学函数来进行运算。否则就调用标准库中的数学函数库。</p>
-<pre><code>    # CMake 最低版本号要求
-    cmake_minimum_required (VERSION 2.8)
-    # 项目信息
-    project (Demo4)
-    # 加入一个配置头文件，用于处理 CMake 对源码的设置
-    configure_file (
-      &quot;${PROJECT_SOURCE_DIR}/config.h.in&quot;
-      &quot;${PROJECT_BINARY_DIR}/config.h&quot;
-      )
-    # 是否使用自己的 MathFunctions 库
-    option (USE_MYMATH
-           &quot;Use provided math implementation&quot; ON)
-    # 是否加入 MathFunctions 库
-    if (USE_MYMATH)
-      include_directories (&quot;${PROJECT_SOURCE_DIR}/math&quot;)
-      add_subdirectory (math)  
-      set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
-    endif (USE_MYMATH)
-    # 查找当前目录下的所有源文件
-    # 并将名称保存到 DIR_SRCS 变量
-    aux_source_directory(. DIR_SRCS)
-    # 指定生成目标
-    add_executable(Demo ${DIR_SRCS})
-    target_link_libraries (Demo  ${EXTRA_LIBS})
-</code></pre><p><code>configure_file</code>命令用于加入一个配置头文件 config.h, 这个文件由 CMake 从 config.h.in 生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成。option 命令添加了一个USE_MYMATH选项，并且默认值为ON。根据USE_MYMATH变量的值来决定是否使用我们自己编写的 MathFunctions 库。</p>
-<p><font color="red" size="4"> <strong><em>编写 <font color="green" size="4"> </font></em></strong>config.h.in<strong><em> </em></strong></font>文件 <br>上面的程序值得注意的是，这里引用了一个 config.h 文件，这个文件预定义了 USE_MYMATH 的值。但我们并不直接编写这个文件，为了方便从 CMakeLists.txt 中导入配置，我们编写一个 config.h.in 文件，内容如下：<br><code>#cmakedefine USE_MYMATH</code></p>
-<pre><code>    //两种编译方法：
-    cmake . -DUSE_MYMATH=ON
-    make
-
-    cmake . -DUSE_MYMATH=OFF
-    make
+cmake . -DUSE_MYMATH=OFF
+make
 </code></pre>
       
     </div>
@@ -646,7 +541,7 @@ make
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
