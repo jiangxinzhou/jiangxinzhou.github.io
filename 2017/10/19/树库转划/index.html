@@ -87,16 +87,31 @@
 
 
 
-<meta name="description" content="头文件循环依赖引起的一个问题">
+<meta name="description" content="2017.10.19 看多树库融合的论文
+paper name : exploiting multiple treebanks for parsing with quasi-synchronous grammars一些图片：
+我的理解：  
+
+QG features 就是在basic parsing features的特种模板中结合了TP的类型。这样，在目标parser创建树时，就能用到用到源端的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="头文件循环依赖引起编译问题">
-<meta property="og:url" content="http://yoursite.com/2017/07/18/头文件循环依赖引起编译问题/index.html">
+<meta property="og:title" content="树库转化">
+<meta property="og:url" content="http://yoursite.com/2017/10/19/树库转划/index.html">
 <meta property="og:site_name" content="江小发的博客">
-<meta property="og:description" content="头文件循环依赖引起的一个问题">
-<meta property="og:updated_time" content="2017-07-18T07:31:32.000Z">
+<meta property="og:description" content="2017.10.19 看多树库融合的论文
+paper name : exploiting multiple treebanks for parsing with quasi-synchronous grammars一些图片：
+我的理解：  
+
+QG features 就是在basic parsing features的特种模板中结合了TP的类型。这样，在目标parser创建树时，就能用到用到源端的">
+<meta property="og:image" content="http://yoursite.com/image/multipletreebank1.PNG">
+<meta property="og:image" content="http://yoursite.com/image/multipletreebank2.PNG">
+<meta property="og:updated_time" content="2017-10-19T02:12:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="头文件循环依赖引起编译问题">
-<meta name="twitter:description" content="头文件循环依赖引起的一个问题">
+<meta name="twitter:title" content="树库转化">
+<meta name="twitter:description" content="2017.10.19 看多树库融合的论文
+paper name : exploiting multiple treebanks for parsing with quasi-synchronous grammars一些图片：
+我的理解：  
+
+QG features 就是在basic parsing features的特种模板中结合了TP的类型。这样，在目标parser创建树时，就能用到用到源端的">
+<meta name="twitter:image" content="http://yoursite.com/image/multipletreebank1.PNG">
 
 
 
@@ -124,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/18/头文件循环依赖引起编译问题/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/19/树库转划/"/>
 
 
 
 
 
-  <title> 头文件循环依赖引起编译问题 | 江小发的博客 </title>
+  <title> 树库转化 | 江小发的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -297,7 +312,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/头文件循环依赖引起编译问题/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/树库转划/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="江小发">
@@ -321,7 +336,7 @@
             
             
               
-                头文件循环依赖引起编译问题
+                树库转化
               
             
           </h1>
@@ -336,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T15:29:17+08:00">
-                2017-07-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T10:00:49+08:00">
+                2017-10-19
               </time>
             
 
@@ -347,28 +362,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index">
-                    <span itemprop="name">code</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -377,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/18/头文件循环依赖引起编译问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/18/头文件循环依赖引起编译问题/" itemprop="commentCount"></span>
+                <a href="/2017/10/19/树库转划/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/19/树库转划/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -404,78 +397,17 @@
       
 
       
-        <h3 id="头文件循环依赖引起的一个问题"><a href="#头文件循环依赖引起的一个问题" class="headerlink" title="头文件循环依赖引起的一个问题"></a>头文件循环依赖引起的一个问题</h3><a id="more"></a>
-<p>跟大家分享一个和头文件中定义的结构体循环依赖导致的编译错误以及解决方案。</p>
-<pre><code>//head1.h
-#ifndef _HEAD1_
-#define _HEAD1_
-
-#include &quot;head2.h&quot;
-
-typedef struct A
-{
-    B b;
-}A;
-
-
-#endif
-</code></pre><p>###<br>    //head2.h</p>
-<pre><code>#ifndef _HEAD2_
-#define _HEAD2_
-
-#include &quot;head1.h&quot;
-
-typedef struct B
-{
-    A a;
-}B;
-
-#endif
-</code></pre><p>###<br>    //main.cpp</p>
-<pre><code>#include &quot;head1.h&quot;
-#include &quot;head2.h&quot;
-
-
-int main()
-{
-    return 0;
-}
-</code></pre><p>###</p>
-<p>编译错误是 unknown type name ‘A’，head1.h中的A包含了B，head2.h中的B包含了A, 无论如何调整#include的顺序，都会使某个结构体在定义之前就被使用了。</p>
-<p>可以通过前置声明来解决  </p>
-<pre><code>//head2.h
-#ifndef _HEAD2_
-#define _HEAD2_
-
-#include &quot;head1.h&quot;
-
-
-typedef struct A A;
-
-typedef struct B
-{
-    A a;
-}B;
-
-#endif
-</code></pre><p>###<br>依旧报错，field has incomplete type ‘A’, 因为前置声明只能够对结构体中的指针类型的结构体成员有效，编译器不支持定义结构体时，使用未被定义的类型来作为成员，而未被定义但被声明的类型的指针可以作为成员。</p>
-<pre><code>//head2.h
-#ifndef _HEAD2_
-#define _HEAD2_
-
-#include &quot;head1.h&quot;
-
-
-typedef struct A A;
-
-typedef struct B
-{
-    A *a;
-}B;
-
-#endif
-</code></pre><p>编译通过了</p>
-<p>实际上，造成这种现象的原因在某些情况下是结构体所在头文件的划分不合理。合理地规划好头文件能够减少这类现象的发生。</p>
+        <h3 id="2017-10-19-看多树库融合的论文"><a href="#2017-10-19-看多树库融合的论文" class="headerlink" title="2017.10.19 看多树库融合的论文"></a>2017.10.19 看多树库融合的论文</h3><hr>
+<h5 id="paper-name-exploiting-multiple-treebanks-for-parsing-with-quasi-synchronous-grammars"><a href="#paper-name-exploiting-multiple-treebanks-for-parsing-with-quasi-synchronous-grammars" class="headerlink" title="paper name : exploiting multiple treebanks for parsing with quasi-synchronous grammars"></a>paper name : exploiting multiple treebanks for parsing with quasi-synchronous grammars</h5><p>一些图片：<br><img src="/image/multipletreebank1.PNG" alt="image"><br><img src="/image/multipletreebank2.PNG" alt="image"></p>
+<p>我的理解：  </p>
+<ul>
+<li><p>QG features 就是在basic parsing features的特种模板中结合了TP的类型。这样，在目标parser创建树时，就能用到用到源端的信息。  </p>
+</li>
+<li><p>QG features 是用于学习原标注和目标标注之间的联系。</p>
+</li>
+</ul>
+<p>疑惑:<br>*论文中提到三种scoring parts: dependency, sibling, grandparent。dependendcy的解码方法我学过，是否另外两种scoring parts也有相对应的解码方法？  </p>
+<p>*为什么源端的信息可以增加目标parser性能？论文中有举例子详细说，但还是不太理解。</p>
 
       
     </div>
@@ -506,8 +438,8 @@ typedef struct B
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/16/C-编译工作原理/" rel="next" title="C++编译工作原理">
-                <i class="fa fa-chevron-left"></i> C++编译工作原理
+              <a href="/2017/10/12/GPU阶段进展/" rel="next" title="GPU阶段进展">
+                <i class="fa fa-chevron-left"></i> GPU阶段进展
               </a>
             
           </div>
@@ -515,10 +447,6 @@ typedef struct B
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/12/GPU阶段进展/" rel="prev" title="GPU阶段进展">
-                GPU阶段进展 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,8 +472,8 @@ typedef struct B
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/07/18/头文件循环依赖引起编译问题/"
-           data-title="头文件循环依赖引起编译问题" data-url="http://yoursite.com/2017/07/18/头文件循环依赖引起编译问题/">
+      <div class="ds-thread" data-thread-key="2017/10/19/树库转划/"
+           data-title="树库转化" data-url="http://yoursite.com/2017/10/19/树库转划/">
       </div>
     
   </div>
@@ -664,7 +592,7 @@ typedef struct B
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#头文件循环依赖引起的一个问题"><span class="nav-number">1.</span> <span class="nav-text">头文件循环依赖引起的一个问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-19-看多树库融合的论文"><span class="nav-number">1.</span> <span class="nav-text">2017.10.19 看多树库融合的论文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#paper-name-exploiting-multiple-treebanks-for-parsing-with-quasi-synchronous-grammars"><span class="nav-number">1.0.1.</span> <span class="nav-text">paper name : exploiting multiple treebanks for parsing with quasi-synchronous grammars</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
