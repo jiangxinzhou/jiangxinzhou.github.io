@@ -95,7 +95,7 @@
 <meta property="og:description" content="工作日志">
 <meta property="og:image" content="http://yoursite.com/image/multipletreebank1.PNG">
 <meta property="og:image" content="http://yoursite.com/image/multipletreebank2.PNG">
-<meta property="og:updated_time" content="2017-10-21T03:44:55.000Z">
+<meta property="og:updated_time" content="2017-11-10T02:17:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树库转化">
 <meta name="twitter:description" content="工作日志">
@@ -386,6 +386,221 @@
 
       
         <h6 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志"></a>工作日志</h6><a id="more"></a>
+<h3 id="2017-11-6-大规模实验结果"><a href="#2017-11-6-大规模实验结果" class="headerlink" title="2017.11.6 大规模实验结果"></a>2017.11.6 大规模实验结果</h3><table>
+<thead>
+<tr>
+<th>实验</th>
+<th>数据设置</th>
+<th>实验结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTB5-baseline张月版本</td>
+<td>CTB5所有数据，每次迭代10k</td>
+<td>82.94221 [it = 50] </td>
+</tr>
+<tr>
+<td>CTB5-baseline</td>
+<td>CTB5所有数据，每次迭代10k</td>
+<td>83.09377 [it = 81]</td>
+</tr>
+<tr>
+<td>CTB5-multi-task(mlp不分开)</td>
+<td>CTB5和CDT所有数据，每次迭代5k+5k</td>
+<td>84.22313 [it = 156]</td>
+</tr>
+<tr>
+<td>CTB5-multi-task(mlp分开)</td>
+<td>CTB5和CDT所有数据，每次迭代5k+5k</td>
+<td>84.22802 [it = 141]</td>
+</tr>
+<tr>
+<td>CDT-baseline张月版本</td>
+<td>CDT所有数据,每次迭代10k</td>
+<td>87.40160 [it = 118]</td>
+</tr>
+<tr>
+<td>CDT-baseline</td>
+<td>CDT所有数据,每次迭代10k</td>
+<td>87.67660 [it = 185]</td>
+</tr>
+<tr>
+<td>CDT-multi-task(mlp不分开)</td>
+<td>CDT和CTB5所有数据，每次迭代5k+5k</td>
+<td>86.98223 [it = 265]</td>
+</tr>
+<tr>
+<td>CDT-multi-task(mlp分开)</td>
+<td>CDT和CTB5所有数据，每次迭代5k+5k</td>
+<td>87.36379 [it = 256]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>:  </p>
+<ul>
+<li><p>大规模CTB5上我们的版本比张月师姐的性能好(差的不多)  </p>
+</li>
+<li><p>multi-task大规模数据上，CTB5的比baseline提升1.0+, 但是CDT上比baseline降低了，不知是不是数据的比例给的不对，CDT数据集太大了？</p>
+</li>
+</ul>
+<hr>
+<h3 id="2017-10-30-multi-task和baseline-小规模实验"><a href="#2017-10-30-multi-task和baseline-小规模实验" class="headerlink" title="2017.10.30 multi-task和baseline 小规模实验"></a>2017.10.30 multi-task和baseline 小规模实验</h3><ul>
+<li>同一份代码</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据</td>
+<td>8000句 (multi-task两边各8000句)</td>
+</tr>
+<tr>
+<td>最大长度</td>
+<td>40词</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>baseline</th>
+<th>实验结果(用multi-task的代码)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CDT</td>
+<td>best UAS so far (a): 79.86945 [it = 41]</td>
+</tr>
+<tr>
+<td>CTB</td>
+<td>best UAS so far (a): 79.44195 [it = 64]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>multi-task</th>
+<th>实验结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CDT</td>
+<td>best UAS so far (a): 80.40679 [it = 40]</td>
+</tr>
+<tr>
+<td>CTB</td>
+<td>best UAS so far (a): 80.48428 [it = 55]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="2017-10-29-Biaffine-Parser初始化参数"><a href="#2017-10-29-Biaffine-Parser初始化参数" class="headerlink" title="2017.10.29 Biaffine-Parser初始化参数"></a>2017.10.29 Biaffine-Parser初始化参数</h3><ul>
+<li>这里指的是张月师姐代码中的初始化方法，<br>目前我的实验还没有改过来，用的都是随机初始化的方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>SparseParam</th>
+<th>初始化方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pretrain-word-embeding</td>
+<td>读pretrain文件  </td>
+</tr>
+<tr>
+<td>word-embeding</td>
+<td>初始化为0</td>
+</tr>
+<tr>
+<td>input-word-embeding</td>
+<td>pretrain-word-embeding + word-embeding</td>
+</tr>
+<tr>
+<td>pos-embeding</td>
+<td>正态随机初始化 + 除以dim</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>初始化方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BiParam</td>
+<td>W1, W2正交化 #  b初始化为0</td>
+</tr>
+<tr>
+<td>UniParam</td>
+<td>W正交化  # b初始化为0</td>
+</tr>
+<tr>
+<td>BiaffineParam</td>
+<td>Wi正交化 #  b初始化为0</td>
+</tr>
+</tbody>
+</table>
+<p>LSTM cell 没有 b 参数</p>
+<hr>
+<h3 id="2017-10-26-数据准备"><a href="#2017-10-26-数据准备" class="headerlink" title="2017.10.26 数据准备"></a>2017.10.26 数据准备</h3><table>
+<thead>
+<tr>
+<th>CTB5</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>16090</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>803</td>
+</tr>
+<tr>
+<td>test</td>
+<td>1910</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>CDT</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>55496</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>1500</td>
+</tr>
+<tr>
+<td>test</td>
+<td>3000</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <h3 id="2017-10-21-Biaffine-parser"><a href="#2017-10-21-Biaffine-parser" class="headerlink" title="2017.10.21 Biaffine-parser"></a>2017.10.21 Biaffine-parser</h3><p>questions:  </p>
 <ul>
 <li>biaffine-parser中是如何保证弧与弧之间不相交的？</li>
@@ -591,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#工作日志"><span class="nav-number">1.</span> <span class="nav-text">工作日志</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-21-Biaffine-parser"><span class="nav-number"></span> <span class="nav-text">2017.10.21 Biaffine-parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-19-看多树库融合的论文"><span class="nav-number"></span> <span class="nav-text">2017.10.19 看多树库融合的论文</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#工作日志"><span class="nav-number">1.</span> <span class="nav-text">工作日志</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-6-大规模实验结果"><span class="nav-number"></span> <span class="nav-text">2017.11.6 大规模实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-30-multi-task和baseline-小规模实验"><span class="nav-number"></span> <span class="nav-text">2017.10.30 multi-task和baseline 小规模实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-29-Biaffine-Parser初始化参数"><span class="nav-number"></span> <span class="nav-text">2017.10.29 Biaffine-Parser初始化参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-26-数据准备"><span class="nav-number"></span> <span class="nav-text">2017.10.26 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-21-Biaffine-parser"><span class="nav-number"></span> <span class="nav-text">2017.10.21 Biaffine-parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-19-看多树库融合的论文"><span class="nav-number"></span> <span class="nav-text">2017.10.19 看多树库融合的论文</span></a></div>
             
 
           </div>
