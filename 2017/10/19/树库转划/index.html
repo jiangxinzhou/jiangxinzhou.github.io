@@ -87,18 +87,72 @@
 
 
 
-<meta name="description" content="工作日志">
+<meta name="description" content="2017.11.28数据:苏大规范3439句， 每次迭代1k 
+
+
+
+实验
+结果
+
+
+
+
+biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-100
+84.68468 [it = 32]
+
+
+biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-30
+84.50450 [it = 31] 
+
+
+biseqls">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树库转化">
 <meta property="og:url" content="http://yoursite.com/2017/10/19/树库转划/index.html">
 <meta property="og:site_name" content="江小发的博客">
-<meta property="og:description" content="工作日志">
+<meta property="og:description" content="2017.11.28数据:苏大规范3439句， 每次迭代1k 
+
+
+
+实验
+结果
+
+
+
+
+biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-100
+84.68468 [it = 32]
+
+
+biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-30
+84.50450 [it = 31] 
+
+
+biseqls">
 <meta property="og:image" content="http://yoursite.com/image/multipletreebank1.PNG">
 <meta property="og:image" content="http://yoursite.com/image/multipletreebank2.PNG">
-<meta property="og:updated_time" content="2017-11-23T01:46:23.000Z">
+<meta property="og:updated_time" content="2017-12-01T04:20:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树库转化">
-<meta name="twitter:description" content="工作日志">
+<meta name="twitter:description" content="2017.11.28数据:苏大规范3439句， 每次迭代1k 
+
+
+
+实验
+结果
+
+
+
+
+biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-100
+84.68468 [it = 32]
+
+
+biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-30
+84.50450 [it = 31] 
+
+
+biseqls">
 <meta name="twitter:image" content="http://yoursite.com/image/multipletreebank1.PNG">
 
 
@@ -385,7 +439,68 @@
       
 
       
-        <h6 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志"></a>工作日志</h6><a id="more"></a>
+        <h3 id="2017-11-28"><a href="#2017-11-28" class="headerlink" title="2017.11.28"></a>2017.11.28</h3><p>数据:苏大规范3439句， 每次迭代1k </p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-100</td>
+<td>84.68468 [it = 32]</td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-30</td>
+<td>84.50450 [it = 31] </td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-hidden-input-to-bitreelstm-output-60-no-mlp</td>
+<td>84.56456 [it = 28]</td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-embed-input-to-bitreelstm-mlp-100</td>
+<td>83.18318 [it = 44]</td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-embed-input-to-bitreelstm-output-60-no-mlp</td>
+<td>84.05405 [it = 65]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不使用多任务学习训练好的参数</td>
+<td>72.76276 [it = 103]</td>
+</tr>
+<tr>
+<td>使用多任务学习训练好的参数</td>
+<td>79.39940 [it = 83]</td>
+</tr>
+<tr>
+<td>pattern + 使用多任务学习训练好的参数</td>
+<td>85.13514 [it = 43]</td>
+</tr>
+<tr>
+<td>bottom-up-treeLSTM + 使用多任务学习训练好的参数</td>
+<td>83.45345 [it = 78]</td>
+</tr>
+<tr>
+<td>BitreeLSTM + 使用多任务学习训练好的参数</td>
+<td>84.68468 [it = 32]</td>
+</tr>
+</tbody>
+</table>
+<p>苏大规范和哈工大规范对比<br>数据集|句子数|相同弧数|总弧数|比例<br>—|—|—|—|—<br>train|3439|19377|23157|83.68<br>dev|500|2760|3330|82.88<br>test|1000|5576|6708|83.12</p>
 <h3 id="2017-11-22-待尝试的idea"><a href="#2017-11-22-待尝试的idea" class="headerlink" title="2017.11.22 待尝试的idea"></a>2017.11.22 待尝试的idea</h3><table>
 <thead>
 <tr>
@@ -408,6 +523,22 @@
 </tr>
 <tr>
 <td>CRF-loss</td>
+<td></td>
+</tr>
+<tr>
+<td>苏大规范加入 multi-task learning pretrain</td>
+<td></td>
+</tr>
+<tr>
+<td>使用SPtree</td>
+<td></td>
+</tr>
+<tr>
+<td>treelstm+pattern</td>
+<td></td>
+</tr>
+<tr>
+<td>unkown的训练</td>
 <td></td>
 </tr>
 </tbody>
@@ -1013,7 +1144,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#工作日志"><span class="nav-number">1.</span> <span class="nav-text">工作日志</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-待尝试的idea"><span class="nav-number"></span> <span class="nav-text">2017.11.22 待尝试的idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-转化模型实验"><span class="nav-number"></span> <span class="nav-text">2017.11.22 转化模型实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-19-数据准备"><span class="nav-number"></span> <span class="nav-text">2017.11.19 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-16"><span class="nav-number"></span> <span class="nav-text">2017.11.16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-15"><span class="nav-number"></span> <span class="nav-text">2017.11.15</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-6-大规模实验结果"><span class="nav-number"></span> <span class="nav-text">2017.11.6 大规模实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-30-multi-task和baseline-小规模实验"><span class="nav-number"></span> <span class="nav-text">2017.10.30 multi-task和baseline 小规模实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-29-Biaffine-Parser初始化参数"><span class="nav-number"></span> <span class="nav-text">2017.10.29 Biaffine-Parser初始化参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-26-数据准备"><span class="nav-number"></span> <span class="nav-text">2017.10.26 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-21-Biaffine-parser"><span class="nav-number"></span> <span class="nav-text">2017.10.21 Biaffine-parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-19-看多树库融合的论文"><span class="nav-number"></span> <span class="nav-text">2017.10.19 看多树库融合的论文</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-28"><span class="nav-number">1.</span> <span class="nav-text">2017.11.28</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-待尝试的idea"><span class="nav-number">2.</span> <span class="nav-text">2017.11.22 待尝试的idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-转化模型实验"><span class="nav-number">3.</span> <span class="nav-text">2017.11.22 转化模型实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-19-数据准备"><span class="nav-number">4.</span> <span class="nav-text">2017.11.19 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-16"><span class="nav-number">5.</span> <span class="nav-text">2017.11.16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-15"><span class="nav-number">6.</span> <span class="nav-text">2017.11.15</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-6-大规模实验结果"><span class="nav-number">7.</span> <span class="nav-text">2017.11.6 大规模实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-30-multi-task和baseline-小规模实验"><span class="nav-number">8.</span> <span class="nav-text">2017.10.30 multi-task和baseline 小规模实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-29-Biaffine-Parser初始化参数"><span class="nav-number">9.</span> <span class="nav-text">2017.10.29 Biaffine-Parser初始化参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-26-数据准备"><span class="nav-number">10.</span> <span class="nav-text">2017.10.26 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-21-Biaffine-parser"><span class="nav-number">11.</span> <span class="nav-text">2017.10.21 Biaffine-parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-19-看多树库融合的论文"><span class="nav-number">12.</span> <span class="nav-text">2017.10.19 看多树库融合的论文</span></a></li></ol></div>
             
 
           </div>

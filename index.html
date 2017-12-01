@@ -387,14 +387,530 @@
 
       
         
-          <h6 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志"></a>工作日志</h6>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/19/树库转划/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="2017-11-28"><a href="#2017-11-28" class="headerlink" title="2017.11.28"></a>2017.11.28</h3><p>数据:苏大规范3439句， 每次迭代1k </p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-100</td>
+<td>84.68468 [it = 32]</td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-hidden-input-to-bitreelstm-mlp-30</td>
+<td>84.50450 [it = 31] </td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-hidden-input-to-bitreelstm-output-60-no-mlp</td>
+<td>84.56456 [it = 28]</td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-embed-input-to-bitreelstm-mlp-100</td>
+<td>83.18318 [it = 44]</td>
+</tr>
+<tr>
+<td>biseqlstm-mlp-100-embed-input-to-bitreelstm-output-60-no-mlp</td>
+<td>84.05405 [it = 65]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不使用多任务学习训练好的参数</td>
+<td>72.76276 [it = 103]</td>
+</tr>
+<tr>
+<td>使用多任务学习训练好的参数</td>
+<td>79.39940 [it = 83]</td>
+</tr>
+<tr>
+<td>pattern + 使用多任务学习训练好的参数</td>
+<td>85.13514 [it = 43]</td>
+</tr>
+<tr>
+<td>bottom-up-treeLSTM + 使用多任务学习训练好的参数</td>
+<td>83.45345 [it = 78]</td>
+</tr>
+<tr>
+<td>BitreeLSTM + 使用多任务学习训练好的参数</td>
+<td>84.68468 [it = 32]</td>
+</tr>
+</tbody>
+</table>
+<p>苏大规范和哈工大规范对比<br>数据集|句子数|相同弧数|总弧数|比例<br>—|—|—|—|—<br>train|3439|19377|23157|83.68<br>dev|500|2760|3330|82.88<br>test|1000|5576|6708|83.12</p>
+<h3 id="2017-11-22-待尝试的idea"><a href="#2017-11-22-待尝试的idea" class="headerlink" title="2017.11.22 待尝试的idea"></a>2017.11.22 待尝试的idea</h3><table>
+<thead>
+<tr>
+<th>待尝试</th>
+<th>是否完成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tree-lstm</td>
+<td></td>
+</tr>
+<tr>
+<td>训练集合变大</td>
+<td></td>
+</tr>
+<tr>
+<td>使用labeled</td>
+<td></td>
+</tr>
+<tr>
+<td>CRF-loss</td>
+<td></td>
+</tr>
+<tr>
+<td>苏大规范加入 multi-task learning pretrain</td>
+<td></td>
+</tr>
+<tr>
+<td>使用SPtree</td>
+<td></td>
+</tr>
+<tr>
+<td>treelstm+pattern</td>
+<td></td>
+</tr>
+<tr>
+<td>unkown的训练</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2017-11-22-转化模型实验"><a href="#2017-11-22-转化模型实验" class="headerlink" title="2017.11.22 转化模型实验"></a>2017.11.22 转化模型实验</h3><table>
+<thead>
+<tr>
+<th>实验</th>
+<th>数据</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不使用多任务学习训练好的参数</td>
+<td>苏大规范3439句， 每次迭代1k</td>
+<td>72.76276 [it = 103]</td>
+</tr>
+<tr>
+<td>使用多任务学习训练好的参数</td>
+<td>苏大规范3439句，每次迭代1k</td>
+<td>79.39940 [it = 83]</td>
+</tr>
+<tr>
+<td>pattern + 使用多任务学习训练好的参数</td>
+<td>苏大规范3439句，每次迭代1k</td>
+<td>85.13514 [it = 43]</td>
+</tr>
+</tbody>
+</table>
+<p>苏大规范和哈工大规范对比</p>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>句子数</th>
+<th>相同弧数</th>
+<th>总弧数</th>
+<th>比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>3439</td>
+<td>19377</td>
+<td>23157</td>
+<td>83.68</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>500</td>
+<td>2760</td>
+<td>3330</td>
+<td>82.88</td>
+</tr>
+<tr>
+<td>test</td>
+<td>1000</td>
+<td>5576</td>
+<td>6708</td>
+<td>83.12</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2017-11-19-数据准备"><a href="#2017-11-19-数据准备" class="headerlink" title="2017.11.19 数据准备"></a>2017.11.19 数据准备</h3><table>
+<thead>
+<tr>
+<th>第一批标注数据v1</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>3439</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>500</td>
+</tr>
+<tr>
+<td>test</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>第二批待标注数据v2</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>3341+1000</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>500</td>
+</tr>
+<tr>
+<td>test</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>CDT</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原始</td>
+<td>55496</td>
+</tr>
+<tr>
+<td>去重</td>
+<td>55450</td>
+</tr>
+<tr>
+<td>去掉3000-dev+test CDT2</td>
+<td>52450</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2017-11-16"><a href="#2017-11-16" class="headerlink" title="2017.11.16"></a>2017.11.16</h3><table>
+<thead>
+<tr>
+<th>实验</th>
+<th>数据设置</th>
+<th>实验结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTB7</td>
+<td>CTB7所有数据，每次迭代10k</td>
+<td>84.37495 [it = 191]</td>
+</tr>
+<tr>
+<td>CTB7-multi-task</td>
+<td>CTB7和CDT所有数据，每次迭代5k+5k</td>
+<td>85.13719 [it = 240]</td>
+</tr>
+<tr>
+<td>CDT</td>
+<td>CDT所有数据,每次迭代10k</td>
+<td>87.67660 [it = 185]</td>
+</tr>
+<tr>
+<td>CDT-multi-task</td>
+<td>CTB7和CDT所有数据，每次迭代5k+5k</td>
+<td>87.90004 [it = 345]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2017-11-15"><a href="#2017-11-15" class="headerlink" title="2017.11.15"></a>2017.11.15</h3><p>CTB7 stanford-3.4</p>
+<table>
+<thead>
+<tr>
+<th>CTB7</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>46572</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>2079</td>
+</tr>
+<tr>
+<td>test</td>
+<td>2796</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2017-11-6-大规模实验结果"><a href="#2017-11-6-大规模实验结果" class="headerlink" title="2017.11.6 大规模实验结果"></a>2017.11.6 大规模实验结果</h3><table>
+<thead>
+<tr>
+<th>实验</th>
+<th>数据设置</th>
+<th>实验结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTB5-baseline张月版本</td>
+<td>CTB5所有数据，每次迭代10k</td>
+<td>82.94221 [it = 50] </td>
+</tr>
+<tr>
+<td>CTB5-baseline</td>
+<td>CTB5所有数据，每次迭代10k</td>
+<td>83.09377 [it = 81]</td>
+</tr>
+<tr>
+<td>CTB5-multi-task(mlp不分开)</td>
+<td>CTB5和CDT所有数据，每次迭代5k+5k</td>
+<td>84.22313 [it = 156]</td>
+</tr>
+<tr>
+<td>CTB5-multi-task(mlp分开)</td>
+<td>CTB5和CDT所有数据，每次迭代5k+5k</td>
+<td>84.22802 [it = 141]</td>
+</tr>
+<tr>
+<td>CDT-baseline张月版本</td>
+<td>CDT所有数据,每次迭代10k</td>
+<td>87.40160 [it = 118]</td>
+</tr>
+<tr>
+<td>CDT-baseline</td>
+<td>CDT所有数据,每次迭代10k</td>
+<td>87.67660 [it = 185]</td>
+</tr>
+<tr>
+<td>CDT-multi-task(mlp不分开)</td>
+<td>CDT和CTB5所有数据，每次迭代5k+5k</td>
+<td>86.98223 [it = 265]</td>
+</tr>
+<tr>
+<td>CDT-multi-task(mlp分开)</td>
+<td>CDT和CTB5所有数据，每次迭代5k+5k</td>
+<td>87.36379 [it = 256]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>:  </p>
+<ul>
+<li><p>大规模CTB5上我们的版本比张月师姐的性能好(差的不多)  </p>
+</li>
+<li><p>multi-task大规模数据上，CTB5的比baseline提升1.0+, 但是CDT上比baseline降低了，不知是不是数据的比例给的不对，CDT数据集太大了？</p>
+</li>
+</ul>
+<hr>
+<h3 id="2017-10-30-multi-task和baseline-小规模实验"><a href="#2017-10-30-multi-task和baseline-小规模实验" class="headerlink" title="2017.10.30 multi-task和baseline 小规模实验"></a>2017.10.30 multi-task和baseline 小规模实验</h3><ul>
+<li>同一份代码</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据</td>
+<td>8000句 (multi-task两边各8000句)</td>
+</tr>
+<tr>
+<td>最大长度</td>
+<td>40词</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>baseline</th>
+<th>实验结果(用multi-task的代码)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CDT</td>
+<td>best UAS so far (a): 79.86945 [it = 41]</td>
+</tr>
+<tr>
+<td>CTB</td>
+<td>best UAS so far (a): 79.44195 [it = 64]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>multi-task</th>
+<th>实验结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CDT</td>
+<td>best UAS so far (a): 80.40679 [it = 40]</td>
+</tr>
+<tr>
+<td>CTB</td>
+<td>best UAS so far (a): 80.48428 [it = 55]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="2017-10-29-Biaffine-Parser初始化参数"><a href="#2017-10-29-Biaffine-Parser初始化参数" class="headerlink" title="2017.10.29 Biaffine-Parser初始化参数"></a>2017.10.29 Biaffine-Parser初始化参数</h3><ul>
+<li>这里指的是张月师姐代码中的初始化方法，<br>目前我的实验还没有改过来，用的都是随机初始化的方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>SparseParam</th>
+<th>初始化方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pretrain-word-embeding</td>
+<td>读pretrain文件  </td>
+</tr>
+<tr>
+<td>word-embeding</td>
+<td>初始化为0</td>
+</tr>
+<tr>
+<td>input-word-embeding</td>
+<td>pretrain-word-embeding + word-embeding</td>
+</tr>
+<tr>
+<td>pos-embeding</td>
+<td>正态随机初始化 + 除以dim</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>初始化方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BiParam</td>
+<td>W1, W2正交化 #  b初始化为0</td>
+</tr>
+<tr>
+<td>UniParam</td>
+<td>W正交化  # b初始化为0</td>
+</tr>
+<tr>
+<td>BiaffineParam</td>
+<td>Wi正交化 #  b初始化为0</td>
+</tr>
+</tbody>
+</table>
+<p>LSTM cell 没有 b 参数</p>
+<hr>
+<h3 id="2017-10-26-数据准备"><a href="#2017-10-26-数据准备" class="headerlink" title="2017.10.26 数据准备"></a>2017.10.26 数据准备</h3><table>
+<thead>
+<tr>
+<th>CTB5</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>16090</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>803</td>
+</tr>
+<tr>
+<td>test</td>
+<td>1910</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>CDT</th>
+<th>句子数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train</td>
+<td>55496</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>1500</td>
+</tr>
+<tr>
+<td>test</td>
+<td>3000</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="2017-10-21-Biaffine-parser"><a href="#2017-10-21-Biaffine-parser" class="headerlink" title="2017.10.21 Biaffine-parser"></a>2017.10.21 Biaffine-parser</h3><p>questions:  </p>
+<ul>
+<li>biaffine-parser中是如何保证弧与弧之间不相交的？</li>
+</ul>
+<hr>
+<h3 id="2017-10-19-看多树库融合的论文"><a href="#2017-10-19-看多树库融合的论文" class="headerlink" title="2017.10.19 看多树库融合的论文"></a>2017.10.19 看多树库融合的论文</h3><p>paper name : exploiting multiple treebanks for parsing with quasi-synchronous grammars  </p>
+<p>一些图片：<br><img src="/image/multipletreebank1.PNG" alt="image"><br><img src="/image/multipletreebank2.PNG" alt="image"></p>
+<p>我的理解：  </p>
+<ul>
+<li><p>QG features 就是在basic parsing features的特种模板中结合了TP的类型。这样，在目标parser创建树时，就能用到用到源端的信息。  </p>
+</li>
+<li><p>QG features 是用于学习原标注和目标标注之间的联系。</p>
+</li>
+</ul>
+<p>疑惑:  </p>
+<ul>
+<li><p>论文中提到三种scoring parts: dependency, sibling, grandparent。dependendcy的解码方法我学过，是否另外两种scoring parts也有相对应的解码方法？  </p>
+</li>
+<li><p>为什么源端的信息可以增加目标parser性能？论文中有举例子详细说，但还是不太理解。</p>
+</li>
+</ul>
+
+          
         
       
     </div>
