@@ -388,7 +388,59 @@
       
         
           
-            <h3 id="2017-12-4"><a href="#2017-12-4" class="headerlink" title="2017.12.4"></a>2017.12.4</h3><table>
+            <h3 id="pattern-设置不同的维度"><a href="#pattern-设置不同的维度" class="headerlink" title="pattern 设置不同的维度"></a>pattern 设置不同的维度</h3><table>
+<thead>
+<tr>
+<th>pattern维度</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30</td>
+<td>85.52553 [it = 85]</td>
+</tr>
+<tr>
+<td>50</td>
+<td>85.61562 [it = 78]</td>
+</tr>
+<tr>
+<td>90</td>
+<td>85.67568 [it = 135]</td>
+</tr>
+<tr>
+<td>100</td>
+<td>85.37538 [it = 78]</td>
+</tr>
+<tr>
+<td>150</td>
+<td>85.40541 [it = 88]</td>
+</tr>
+<tr>
+<td>200</td>
+<td>85.46547 [it = 128]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="tree-lstm-mlp-设置不同维度"><a href="#tree-lstm-mlp-设置不同维度" class="headerlink" title="tree-lstm-mlp 设置不同维度"></a>tree-lstm-mlp 设置不同维度</h3><table>
+<thead>
+<tr>
+<th>tree-lstm</th>
+<th>mlp</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>100</td>
+<td>85.64565 [it = 43]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2017-12-5"><a href="#2017-12-5" class="headerlink" title="2017.12.5"></a>2017.12.5</h3><p>接下来要做的事:<br>1.pattern: 加大维度多尝试<br>2.sp-tree-lstm: 加mlp;加children和sibling<br>3.pattern和sp-tree-lstm两边都得到一个相对比较好的效果，然后各用两边最适合的维度，合起来跑一个实验。<br>4.加CRF-loss<br>5.加label</p>
+<h3 id="2017-12-4"><a href="#2017-12-4" class="headerlink" title="2017.12.4"></a>2017.12.4</h3><table>
 <thead>
 <tr>
 <th>实验</th>
@@ -425,7 +477,7 @@
 <td>2829/3330 = 84.95495 [it = 54]</td>
 </tr>
 <tr>
-<td>SPTree(-SP)</td>
+<td>SPTree</td>
 <td style="text-align:center">100</td>
 <td>running</td>
 </tr>
