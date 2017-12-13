@@ -87,123 +87,96 @@
 
 
 
-<meta name="description" content="pattern 设置不同的维度
-
-
-pattern维度
-结果
+<meta name="description" content="2017.12.6变形变形1: sp-tree的特征分别经过MLP-h和MLP-m
+变形2: sp-tree的特征变成两部分 在 分别经过过MLP-h和MLP-m
 
 
 
-
-30
-85.52553 [it = 85]
-
-
-50
-85.61562 [it = 78]
-
-
-90
-85.67568 [it = 135]
-
-
-100
-85.37538 [it = 78]
-
-
-150
-85.40541 [it = 88]
-
-
-200
-85.46547 [it = 128]
+实验
+激活函数
+dev
+test
+服务器
+标记
 
 
 
 
-tree-lstm-mlp">
+变形一
+equal
+85.55556 [it = 56]
+85.42039 [it = 56]
+n172
+
+
+
+变形二
+equal
+85.40541 [it = 47]
+85">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树库转化">
 <meta property="og:url" content="http://yoursite.com/2017/10/19/树库转划/index.html">
 <meta property="og:site_name" content="江小发的博客">
-<meta property="og:description" content="pattern 设置不同的维度
-
-
-pattern维度
-结果
+<meta property="og:description" content="2017.12.6变形变形1: sp-tree的特征分别经过MLP-h和MLP-m
+变形2: sp-tree的特征变成两部分 在 分别经过过MLP-h和MLP-m
 
 
 
-
-30
-85.52553 [it = 85]
-
-
-50
-85.61562 [it = 78]
-
-
-90
-85.67568 [it = 135]
-
-
-100
-85.37538 [it = 78]
-
-
-150
-85.40541 [it = 88]
-
-
-200
-85.46547 [it = 128]
+实验
+激活函数
+dev
+test
+服务器
+标记
 
 
 
 
-tree-lstm-mlp">
+变形一
+equal
+85.55556 [it = 56]
+85.42039 [it = 56]
+n172
+
+
+
+变形二
+equal
+85.40541 [it = 47]
+85">
 <meta property="og:image" content="http://yoursite.com/image/multipletreebank1.PNG">
 <meta property="og:image" content="http://yoursite.com/image/multipletreebank2.PNG">
-<meta property="og:updated_time" content="2017-12-06T06:13:48.000Z">
+<meta property="og:updated_time" content="2017-12-13T08:09:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树库转化">
-<meta name="twitter:description" content="pattern 设置不同的维度
-
-
-pattern维度
-结果
+<meta name="twitter:description" content="2017.12.6变形变形1: sp-tree的特征分别经过MLP-h和MLP-m
+变形2: sp-tree的特征变成两部分 在 分别经过过MLP-h和MLP-m
 
 
 
-
-30
-85.52553 [it = 85]
-
-
-50
-85.61562 [it = 78]
-
-
-90
-85.67568 [it = 135]
-
-
-100
-85.37538 [it = 78]
-
-
-150
-85.40541 [it = 88]
-
-
-200
-85.46547 [it = 128]
+实验
+激活函数
+dev
+test
+服务器
+标记
 
 
 
 
-tree-lstm-mlp">
+变形一
+equal
+85.55556 [it = 56]
+85.42039 [it = 56]
+n172
+
+
+
+变形二
+equal
+85.40541 [it = 47]
+85">
 <meta name="twitter:image" content="http://yoursite.com/image/multipletreebank1.PNG">
 
 
@@ -490,7 +463,143 @@ tree-lstm-mlp">
       
 
       
-        <h3 id="pattern-设置不同的维度"><a href="#pattern-设置不同的维度" class="headerlink" title="pattern 设置不同的维度"></a>pattern 设置不同的维度</h3><table>
+        <h3 id="2017-12-6"><a href="#2017-12-6" class="headerlink" title="2017.12.6"></a>2017.12.6</h3><h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><p>变形1: sp-tree的特征分别经过MLP-h和MLP-m</p>
+<p>变形2: sp-tree的特征变成两部分 在 分别经过过MLP-h和MLP-m</p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>激活函数</th>
+<th>dev</th>
+<th>test</th>
+<th>服务器</th>
+<th>标记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>变形一</td>
+<td>equal</td>
+<td>85.55556 [it = 56]</td>
+<td>85.42039 [it = 56]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>变形二</td>
+<td>equal</td>
+<td>85.40541 [it = 47]</td>
+<td>85.36076 [it = 47]</td>
+<td>n174</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sp-tree-lstm-200-mlp-50-激活函数实验"><a href="#sp-tree-lstm-200-mlp-50-激活函数实验" class="headerlink" title="sp-tree-lstm-200-mlp-50-激活函数实验"></a>sp-tree-lstm-200-mlp-50-激活函数实验</h3><table>
+<thead>
+<tr>
+<th>激活函数</th>
+<th>结果</th>
+<th>服务器</th>
+<th>标记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leaky-relu</td>
+<td>85.22523 [it = 36]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>sigmoid</td>
+<td>85.34535 [it = 50]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>tanh</td>
+<td>85.79580 [it = 111]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>equal</td>
+<td>85.85586 [it = 111]</td>
+<td>n172</td>
+<td>###</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sp-tree-lstm-mlp实验"><a href="#sp-tree-lstm-mlp实验" class="headerlink" title="sp-tree-lstm-mlp实验"></a>sp-tree-lstm-mlp实验</h3><table>
+<thead>
+<tr>
+<th>lstm-hidden</th>
+<th>mlp</th>
+<th>结果</th>
+<th>服务器</th>
+<th>标记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>100 不更新</td>
+<td>85.64565 [it = 43]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>100 更新</td>
+<td>85.61562 [it = 56]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>90 更新</td>
+<td>85.55556 [it = 60]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>90 不更新</td>
+<td>85.46547 [it = 56]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>50 更新</td>
+<td>85.79580 [it = 111]</td>
+<td>n178</td>
+<td>###</td>
+</tr>
+<tr>
+<td>200</td>
+<td>50 不更新</td>
+<td>85.40541 [it = 42]</td>
+<td>n178</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100 更新</td>
+<td>85.46547 [it = 66]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>100</td>
+<td>100 不更新</td>
+<td></td>
+<td>n176</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="pattern-设置不同的维度"><a href="#pattern-设置不同的维度" class="headerlink" title="pattern 设置不同的维度"></a>pattern 设置不同的维度</h3><table>
 <thead>
 <tr>
 <th>pattern维度</th>
@@ -1334,7 +1443,7 @@ tree-lstm-mlp">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pattern-设置不同的维度"><span class="nav-number">1.</span> <span class="nav-text">pattern 设置不同的维度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tree-lstm-mlp-设置不同维度"><span class="nav-number">2.</span> <span class="nav-text">tree-lstm-mlp 设置不同维度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-12-5"><span class="nav-number">3.</span> <span class="nav-text">2017.12.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-12-4"><span class="nav-number">4.</span> <span class="nav-text">2017.12.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-28"><span class="nav-number">5.</span> <span class="nav-text">2017.11.28</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-待尝试的idea"><span class="nav-number">6.</span> <span class="nav-text">2017.11.22 待尝试的idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-转化模型实验"><span class="nav-number">7.</span> <span class="nav-text">2017.11.22 转化模型实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-19-数据准备"><span class="nav-number">8.</span> <span class="nav-text">2017.11.19 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-16"><span class="nav-number">9.</span> <span class="nav-text">2017.11.16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-15"><span class="nav-number">10.</span> <span class="nav-text">2017.11.15</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-6-大规模实验结果"><span class="nav-number">11.</span> <span class="nav-text">2017.11.6 大规模实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-30-multi-task和baseline-小规模实验"><span class="nav-number">12.</span> <span class="nav-text">2017.10.30 multi-task和baseline 小规模实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-29-Biaffine-Parser初始化参数"><span class="nav-number">13.</span> <span class="nav-text">2017.10.29 Biaffine-Parser初始化参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-26-数据准备"><span class="nav-number">14.</span> <span class="nav-text">2017.10.26 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-21-Biaffine-parser"><span class="nav-number">15.</span> <span class="nav-text">2017.10.21 Biaffine-parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-19-看多树库融合的论文"><span class="nav-number">16.</span> <span class="nav-text">2017.10.19 看多树库融合的论文</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-12-6"><span class="nav-number">1.</span> <span class="nav-text">2017.12.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变形"><span class="nav-number">2.</span> <span class="nav-text">变形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sp-tree-lstm-200-mlp-50-激活函数实验"><span class="nav-number">3.</span> <span class="nav-text">sp-tree-lstm-200-mlp-50-激活函数实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sp-tree-lstm-mlp实验"><span class="nav-number">4.</span> <span class="nav-text">sp-tree-lstm-mlp实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pattern-设置不同的维度"><span class="nav-number">5.</span> <span class="nav-text">pattern 设置不同的维度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tree-lstm-mlp-设置不同维度"><span class="nav-number">6.</span> <span class="nav-text">tree-lstm-mlp 设置不同维度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-12-5"><span class="nav-number">7.</span> <span class="nav-text">2017.12.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-12-4"><span class="nav-number">8.</span> <span class="nav-text">2017.12.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-28"><span class="nav-number">9.</span> <span class="nav-text">2017.11.28</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-待尝试的idea"><span class="nav-number">10.</span> <span class="nav-text">2017.11.22 待尝试的idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-22-转化模型实验"><span class="nav-number">11.</span> <span class="nav-text">2017.11.22 转化模型实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-19-数据准备"><span class="nav-number">12.</span> <span class="nav-text">2017.11.19 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-16"><span class="nav-number">13.</span> <span class="nav-text">2017.11.16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-15"><span class="nav-number">14.</span> <span class="nav-text">2017.11.15</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-6-大规模实验结果"><span class="nav-number">15.</span> <span class="nav-text">2017.11.6 大规模实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-30-multi-task和baseline-小规模实验"><span class="nav-number">16.</span> <span class="nav-text">2017.10.30 multi-task和baseline 小规模实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-29-Biaffine-Parser初始化参数"><span class="nav-number">17.</span> <span class="nav-text">2017.10.29 Biaffine-Parser初始化参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-26-数据准备"><span class="nav-number">18.</span> <span class="nav-text">2017.10.26 数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-21-Biaffine-parser"><span class="nav-number">19.</span> <span class="nav-text">2017.10.21 Biaffine-parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-10-19-看多树库融合的论文"><span class="nav-number">20.</span> <span class="nav-text">2017.10.19 看多树库融合的论文</span></a></li></ol></div>
             
 
           </div>

@@ -388,7 +388,143 @@
       
         
           
-            <h3 id="pattern-设置不同的维度"><a href="#pattern-设置不同的维度" class="headerlink" title="pattern 设置不同的维度"></a>pattern 设置不同的维度</h3><table>
+            <h3 id="2017-12-6"><a href="#2017-12-6" class="headerlink" title="2017.12.6"></a>2017.12.6</h3><h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><p>变形1: sp-tree的特征分别经过MLP-h和MLP-m</p>
+<p>变形2: sp-tree的特征变成两部分 在 分别经过过MLP-h和MLP-m</p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>激活函数</th>
+<th>dev</th>
+<th>test</th>
+<th>服务器</th>
+<th>标记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>变形一</td>
+<td>equal</td>
+<td>85.55556 [it = 56]</td>
+<td>85.42039 [it = 56]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>变形二</td>
+<td>equal</td>
+<td>85.40541 [it = 47]</td>
+<td>85.36076 [it = 47]</td>
+<td>n174</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sp-tree-lstm-200-mlp-50-激活函数实验"><a href="#sp-tree-lstm-200-mlp-50-激活函数实验" class="headerlink" title="sp-tree-lstm-200-mlp-50-激活函数实验"></a>sp-tree-lstm-200-mlp-50-激活函数实验</h3><table>
+<thead>
+<tr>
+<th>激活函数</th>
+<th>结果</th>
+<th>服务器</th>
+<th>标记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leaky-relu</td>
+<td>85.22523 [it = 36]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>sigmoid</td>
+<td>85.34535 [it = 50]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>tanh</td>
+<td>85.79580 [it = 111]</td>
+<td>n172</td>
+<td></td>
+</tr>
+<tr>
+<td>equal</td>
+<td>85.85586 [it = 111]</td>
+<td>n172</td>
+<td>###</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sp-tree-lstm-mlp实验"><a href="#sp-tree-lstm-mlp实验" class="headerlink" title="sp-tree-lstm-mlp实验"></a>sp-tree-lstm-mlp实验</h3><table>
+<thead>
+<tr>
+<th>lstm-hidden</th>
+<th>mlp</th>
+<th>结果</th>
+<th>服务器</th>
+<th>标记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>100 不更新</td>
+<td>85.64565 [it = 43]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>100 更新</td>
+<td>85.61562 [it = 56]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>90 更新</td>
+<td>85.55556 [it = 60]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>90 不更新</td>
+<td>85.46547 [it = 56]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>50 更新</td>
+<td>85.79580 [it = 111]</td>
+<td>n178</td>
+<td>###</td>
+</tr>
+<tr>
+<td>200</td>
+<td>50 不更新</td>
+<td>85.40541 [it = 42]</td>
+<td>n178</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100 更新</td>
+<td>85.46547 [it = 66]</td>
+<td>n176</td>
+<td></td>
+</tr>
+<tr>
+<td>100</td>
+<td>100 不更新</td>
+<td></td>
+<td>n176</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="pattern-设置不同的维度"><a href="#pattern-设置不同的维度" class="headerlink" title="pattern 设置不同的维度"></a>pattern 设置不同的维度</h3><table>
 <thead>
 <tr>
 <th>pattern维度</th>
